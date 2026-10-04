@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone | Games Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar">
+        <a href="index.html" class="logo">🎮 <span>GAME</span>ZONE</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="games.html" class="active">Games</a>
+            <a href="categories.html">Categories</a>
+            <a href="#">About</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="nav-search-btn" id="navSearchButton" aria-label="Search">🔍</button>
+            <button class="signin-btn login-btn">Sign In</button>
+        </div>
+    </header>
+
+    <!-- =========================
+         HERO & SEARCH
+    ========================== -->
+    <section class="games-hero hero">
+        <div class="hero-content">
+            <p class="small-title">🎮 DISCOVER YOUR NEXT GAME</p>
+            <h1>EXPLORE <span>GAMES</span></h1>
+            <p>Find the best games across all genres. Search, filter, and dive straight into action.</p>
+
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search games by title, genre, or category..." autocomplete="off">
+                <button id="clearSearch" aria-label="Clear search" type="button">✖</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+         CATEGORY FILTERS
+    ========================== -->
+    <section class="categories">
+        <button class="category category-btn active" data-category="all">All Games</button>
+        <button class="category category-btn" data-category="Arcade">🪙 Arcade</button>
+        <button class="category category-btn" data-category="RPG">⚔️ RPG</button>
+        <button class="category category-btn" data-category="Action">💥 Action</button>
+        <button class="category category-btn" data-category="Racing">🏎️ Racing</button>
+        <button class="category category-btn" data-category="Survival">🧟 Survival</button>
+        <button class="category category-btn" data-category="Strategy">🧠 Strategy</button>
+        <button class="category category-btn" data-category="FPS">🎯 FPS</button>
+        <button class="category category-btn" data-category="Adventure">🗺️ Adventure</button>
+        <button class="category category-btn" data-category="Sports">⚽ Sports</button>
+    </section>
+
+    <!-- =========================
+         GAMES CATALOG SECTION
+    ========================== -->
+    <main class="home-section games-section">
+        <div class="catalog-header">
+            <div>
+                <h2 id="sectionTitle">Featured Games</h2>
+                <p class="catalog-count">Showing <span id="totalGames">0</span> games</p>
+            </div>
+
+            <div class="sort-wrapper">
+                <label for="sortSelect">Sort By:</label>
+                <select id="sortSelect">
+                    <option value="featured">Featured</option>
+                    <option value="rating">Top Rated</option>
+                    <option value="name">Name (A-Z)</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- LOADING STATE -->
+        <div id="loadingState" class="status-container hidden">
+            <div class="spinner"></div>
+            <p>Loading games...</p>
+        </div>
+
+        <!-- ERROR STATE -->
+        <div id="errorState" class="status-container hidden">
+            <div class="status-icon">⚠️</div>
+            <h3>Oops! Something went wrong.</h3>
+            <p id="errorText">Unable to connect to the GameZone API.</p>
+            <button id="retryBtn" class="primary-btn">Retry Loading</button>
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div id="emptyState" class="status-container hidden">
+            <div class="status-icon">🔍</div>
+            <h3>No games found</h3>
+            <p>Try searching for something else or reset your filters.</p>
+            <button id="resetBtn" class="secondary-btn">Reset Filters</button>
+        </div>
+
+        <!-- GAMES GRID CONTAINER -->
+        <div id="gamesContainer" class="games-grid"></div>
+    </main>
+
+    <!-- =========================
+         GAME MODAL
+    ========================== -->
+    <div id="gameModal" class="modal-wrapper hidden">
+        <div id="modalOverlay" class="modal-overlay"></div>
+        <div class="modal-card">
+            <button id="closeModal" class="modal-close-btn" aria-label="Close modal">✕</button>
+
+            <div id="modalImage" class="modal-banner"></div>
+
+            <div class="modal-content">
+                <div class="modal-badges">
+                    <span id="modalCategory" class="category-badge">🎮 Game</span>
+                    <span id="modalRating" class="rating-badge">⭐ 0 / 10</span>
+                </div>
+
+                <h2 id="modalTitle">Game Title</h2>
+
+                <div class="modal-details">
+                    <span id="modalGenre">Genre: Gaming</span>
+                    <span id="modalPlatform">Platform: PC</span>
+                </div>
+
+                <p id="modalDescription">Game description details will appear here.</p>
+
+                <div class="modal-actions">
+                    <button id="playGameBtn" class="primary-btn play-btn">▶ Play Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer>
+        <h2>🎮 GAMEZONE</h2>
+        <p>Your gateway to the gaming universe.</p>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="games.html">Games</a>
+            <a href="categories.html">Categories</a>
+            <a href="#">About</a>
+        </div>
+
+        <p class="copyright">© 2026 GameZone. All rights reserved.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="game.js"></script>
+
+</body>
+
+</html>

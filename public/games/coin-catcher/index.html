@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Catcher | GameZone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game-page">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <div class="game-header">
+        <div class="game-title">
+            <span class="coin-icon">🪙</span>
+            <span>Coin Catcher</span>
+        </div>
+
+        <div class="stats-row">
+            <div class="score">
+                Score: <span id="score">0</span>
+            </div>
+            <div class="lives">
+                Lives: <span id="lives">❤️❤️❤️</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================
+         INSTRUCTIONS
+    ========================== -->
+    <div class="instructions">
+        Use ← and → (or A & D) to move. Catch the coins before they fall!
+    </div>
+
+    <!-- =========================
+         GAME CONTAINER
+    ========================== -->
+    <div class="game-container" id="game">
+        <div class="player" id="player"></div>
+
+        <!-- TOUCH CONTROLS FOR MOBILE & TABLETS -->
+        <div class="touch-controls">
+            <button class="touch-btn touch-left" id="btnLeft" aria-label="Move Left" type="button">◀</button>
+            <button class="touch-btn touch-right" id="btnRight" aria-label="Move Right" type="button">▶</button>
+        </div>
+
+        <!-- GAME OVER MODAL -->
+        <div class="game-over" id="gameOver">
+            <h2>Game Over!</h2>
+            <p>Final Score: <strong id="finalScore">0</strong></p>
+            <button class="restart-btn" type="button" onclick="restartGame()">Play Again</button>
+        </div>
+    </div>
+
+    <!-- =========================
+         BACK
+    ========================== -->
+    <div class="back">
+        <a href="../../games.html">← Back to GameZone</a>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
